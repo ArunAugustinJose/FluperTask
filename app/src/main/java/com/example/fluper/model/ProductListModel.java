@@ -27,6 +27,9 @@ public class ProductListModel {
     @SerializedName("colors")
     @Expose
     private ArrayList<ColorModel> colorList = new ArrayList<>();
+    @SerializedName("image")
+    @Expose
+    private int image;
 
     public int getId() {
         return id;
@@ -82,5 +85,13 @@ public class ProductListModel {
 
     public void setColorList(ArrayList<ColorModel> colorList) {
         this.colorList = colorList;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

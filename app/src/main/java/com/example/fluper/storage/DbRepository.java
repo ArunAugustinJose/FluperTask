@@ -31,6 +31,7 @@ public class DbRepository {
         productEntity.setDescription(productListModel.getDescription());
         productEntity.setRegular_price(productListModel.getRegular_price());
         productEntity.setSale_price(productListModel.getSale_price());
+        productEntity.setProduct_photo(productListModel.getProduct_photo());
         productEntity.setColors(String.valueOf(productListModel.getColorList()));
         insertItem(productEntity);
 

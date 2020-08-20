@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.example.fluper.R;
 import com.example.fluper.fragment.DashboardFragment;
 import com.example.fluper.model.ProductListModel;
+import com.example.fluper.util.AppController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AppController.setActivity(this);
 
         initRootView();
     }

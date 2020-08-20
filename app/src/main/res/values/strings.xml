@@ -15,4 +15,6 @@
     <!--    Dashboard-->
     <string name="create_product">Create Product</string>
     <string name="show_product">Show Products</string>
+    <string name="search_products">Search products</string>
+    <string name="product_list"> Products </string>
 </resources>

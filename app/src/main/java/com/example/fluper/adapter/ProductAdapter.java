@@ -1,6 +1,7 @@
 package com.example.fluper.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.fluper.R;
+import com.example.fluper.activity.MainActivity;
 import com.example.fluper.fragment.ProductListFragment;
 import com.example.fluper.model.ProductListModel;
+import com.example.fluper.util.AppController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.DashBoar
 
     private List<ProductListModel> mProductList;
     private List<ProductListModel> productListFiltered;
-    private Context context;
+    private Context mContext;
+    private LayoutInflater inflater;
     private ProductClickListener mClickListener;
     private boolean mStatus;
 
@@ -36,28 +40,30 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.DashBoar
     public ProductAdapter(Context context, List<ProductListModel> itemList, ProductClickListener clickListener) {
         mProductList = itemList;
         productListFiltered = itemList;
-        context = context;
+        inflater = LayoutInflater.from(context);
+        this.mContext = context;
         mClickListener = clickListener;
     }
 
     @NonNull
     @Override
     public DashBoardVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_product, null, false);
+        View view = inflater.inflate(R.layout.item_product, null, false);
         return new DashBoardVH(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DashBoardVH holder, int position) {
         ProductListModel pList = productListFiltered.get(position);
-        Glide.with(context).load(pList.getProduct_photo())
+
+        Glide.with(mContext).load(pList.getImage())
                 .thumbnail(0.5f)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.productImage);
 
         holder.mTitle.setText(pList.getName());
-        holder.mPrice.setText(String.valueOf(pList.getSale_price()));
+        holder.mPrice.setText("₹ "+String.valueOf(pList.getSale_price()));
 
     }
 

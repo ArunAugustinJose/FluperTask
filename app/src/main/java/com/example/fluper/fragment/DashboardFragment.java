@@ -129,7 +129,7 @@ public class DashboardFragment extends Fragment {
 
     }
     private void storeData(ProductListModel productListModel) {
-        Log.e("StoreData", productListModel.getName());
+        Log.e("StoreData", productListModel.getProduct_photo());
         //passing values to db and increase product_count variable
             dbRepository.insertProduct(productListModel);
             product_count++;
