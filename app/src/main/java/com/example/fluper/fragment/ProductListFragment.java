@@ -18,6 +18,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.fluper.R;
 import com.example.fluper.adapter.ProductAdapter;
@@ -30,6 +32,7 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.fluper.constant.BundleConstant.PRODUCT;
 import static com.example.fluper.constant.DataConstant.PRODUCT_IMAGE_ARRAY;
 
 /**
@@ -41,6 +44,8 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
 
     RecyclerView rProducts;
     MaterialSearchBar searchBar;
+    ImageView mBack;
+    LinearLayout lEmpty;
 
     private List<ProductListModel> productList = new ArrayList<>();
     ProductAdapter mAdapter;
@@ -79,6 +84,15 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
 
         rProducts = view.findViewById(R.id.rv_product);
         searchBar = view.findViewById(R.id.searchBar);
+        mBack = view.findViewById(R.id.img_back);
+        lEmpty = view.findViewById(R.id.ll_empty);
+
+        //set elevation to 0
+        searchBar.setCardViewElevation(0);
+
+        mBack.setOnClickListener(v -> {
+            getActivity().getSupportFragmentManager().popBackStack();
+        });
 
         getProducts();
     }
@@ -139,27 +153,45 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
             @Override
             public void onChanged(List<ProductEntity> productEntities) {
                 productList.clear();
-                int i = 0;
-                for (ProductEntity productEntity : productEntities) {
-                    ProductListModel productListModel = new ProductListModel();
-                    productListModel.setId(productEntity.getProduct_id());
-                    productListModel.setName(productEntity.getName());
-                    productListModel.setDescription(productEntity.getDescription());
-                    productListModel.setRegular_price(productEntity.getRegular_price());
-                    productListModel.setSale_price(productEntity.getSale_price());
-                    productListModel.setProduct_photo(productEntity.getProduct_photo());
-                    productListModel.setImage(PRODUCT_IMAGE_ARRAY[i]);
-                    Log.e("COLORS", productEntity.getProduct_photo());
-                    productList.add(productListModel);
-                    i++;
+                if (productEntities.size() > 0) {
+                    lEmpty.setVisibility(View.GONE);
+                    int i = 0;
+                    for (ProductEntity productEntity : productEntities) {
+                        ProductListModel productListModel = new ProductListModel();
+                        productListModel.setId(productEntity.getProduct_id());
+                        productListModel.setName(productEntity.getName());
+                        productListModel.setDescription(productEntity.getDescription());
+                        productListModel.setRegular_price(productEntity.getRegular_price());
+                        productListModel.setSale_price(productEntity.getSale_price());
+                        productListModel.setProduct_photo(productEntity.getProduct_photo());
+                        productListModel.setImage(PRODUCT_IMAGE_ARRAY[i]);
+                        Log.e("COLORS", productEntity.getProduct_photo());
+                        productList.add(productListModel);
+                        i++;
+                    }
+                    init();
+                }else {
+                    lEmpty.setVisibility(View.VISIBLE);
                 }
-                init();
             }
         });
     }
 
     @Override
-    public void onItemClick(int position) {
+    public void onItemClick(int position, boolean isDelete) {
+        if (!isDelete) {
+            //load ProductListFragment
+            ProductDetailFragment productDetailFragment = new ProductDetailFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(PRODUCT, productList.get(position));
 
+            productDetailFragment.setArguments(bundle);
+            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, productDetailFragment).addToBackStack(null).commit();
+        }else {
+            //delete corresponding product from db
+            dbRepository.deleteProduct(productList.get(position).getId());
+            //update product_count variable when delete the product.
+            DashboardFragment.getInstance().updateProductCount();
+        }
     }
 }

@@ -17,4 +17,9 @@
     <string name="show_product">Show Products</string>
     <string name="search_products">Search products</string>
     <string name="product_list"> Products </string>
+    <string name="product_detail"> Product Detail</string>
+
+<!--    warning-->
+    <string name="no_products">No Products Available</string>
+    <string name="all_products_added"> All products are added to the database</string>
 </resources>

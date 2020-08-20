@@ -1,5 +1,6 @@
 package com.example.fluper.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,12 +38,16 @@ public class DashboardFragment extends Fragment {
     ProductListModel productListModel;
     ArrayList<ProductListModel> productList = new ArrayList<>();
     int product_count = 0;
+    private static DashboardFragment instance = null;
 
     Button bCreate, bShow;
     public DashboardFragment() {
         // Required empty public constructor
     }
 
+    public static DashboardFragment getInstance() {
+        return instance;
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -57,6 +62,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
     }
 
     @Override
@@ -72,7 +78,7 @@ public class DashboardFragment extends Fragment {
         //initializing db
         dbRepository = new DbRepository(getContext());
         //delete all values from db to avoid redundancy
-        dbRepository.deleteProduct();
+        dbRepository.deleteAllProducts();
 
         bCreate = view.findViewById(R.id.btn_create);
         bShow = view.findViewById(R.id.btn_show_products);
@@ -120,18 +126,28 @@ public class DashboardFragment extends Fragment {
                     e.printStackTrace();
                 }
             }else {
-                Toast.makeText(getContext(), String.valueOf(jsonArray.length())+"  "+String.valueOf(product_count), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getString(R.string.all_products_added), Toast.LENGTH_LONG).show();
             }
             Log.e("JSON2", String.valueOf(jsonArray.length()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
+
+    @SuppressLint("SetTextI18n")
     private void storeData(ProductListModel productListModel) {
         Log.e("StoreData", productListModel.getProduct_photo());
         //passing values to db and increase product_count variable
             dbRepository.insertProduct(productListModel);
             product_count++;
+            //update button
+            int count = product_count + 1;
+            bCreate.setText(getString(R.string.create_product)+" "+count);
+    }
+
+    public void updateProductCount(){
+        product_count--;
+        int count = product_count + 1;
+        bCreate.setText(getString(R.string.create_product)+" "+count);
     }
 }

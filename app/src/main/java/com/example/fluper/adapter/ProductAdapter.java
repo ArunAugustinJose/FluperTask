@@ -73,7 +73,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.DashBoar
     }
 
     class DashBoardVH extends RecyclerView.ViewHolder {
-        private ImageView productImage;
+        private ImageView productImage, mDelete;
         private TextView mTitle, mPrice;
 
         DashBoardVH(@NonNull View itemView) {
@@ -81,10 +81,25 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.DashBoar
             productImage = itemView.findViewById(R.id.img_product);
             mTitle = itemView.findViewById(R.id.tv_product);
             mPrice = itemView.findViewById(R.id.tv_price);
+            mDelete = itemView.findViewById(R.id.img_delete);
 
             itemView.setOnClickListener(view -> {
-                if (mClickListener != null) {
-                    mClickListener.onItemClick(productListFiltered.get(getAdapterPosition()).getId());
+                for(int i = 0; i< mProductList.size(); i++){
+                    if (mProductList.get(i).getId() == productListFiltered.get(getAdapterPosition()).getId()){
+                        if (mClickListener != null) {
+                            mClickListener.onItemClick(i, false);
+                        }
+                    }
+                }
+            });
+
+            mDelete.setOnClickListener(v -> {
+                for(int i = 0; i< mProductList.size(); i++){
+                    if (mProductList.get(i).getId() == productListFiltered.get(getAdapterPosition()).getId()){
+                        if (mClickListener != null) {
+                            mClickListener.onItemClick(i, true);
+                        }
+                    }
                 }
             });
         }
@@ -129,6 +144,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.DashBoar
 
     //initialize a listener to handle click event
     public interface ProductClickListener {
-        void onItemClick(int position);
+        void onItemClick(int position, boolean isDelete);
     }
 }

@@ -1,11 +1,14 @@
 package com.example.fluper.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class ProductListModel {
+public class ProductListModel implements Parcelable {
     @SerializedName("id")
     @Expose
     private int id;
@@ -30,6 +33,31 @@ public class ProductListModel {
     @SerializedName("image")
     @Expose
     private int image;
+
+    public ProductListModel(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        description = in.readString();
+        regular_price = in.readDouble();
+        sale_price = in.readDouble();
+        product_photo = in.readString();
+        image = in.readInt();
+    }
+
+    public static final Creator<ProductListModel> CREATOR = new Creator<ProductListModel>() {
+        @Override
+        public ProductListModel createFromParcel(Parcel in) {
+            return new ProductListModel(in);
+        }
+
+        @Override
+        public ProductListModel[] newArray(int size) {
+            return new ProductListModel[size];
+        }
+    };
+
+    public ProductListModel() {
+    }
 
     public int getId() {
         return id;
@@ -93,5 +121,21 @@ public class ProductListModel {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeDouble(regular_price);
+        dest.writeDouble(sale_price);
+        dest.writeString(product_photo);
+        dest.writeInt(image);
     }
 }

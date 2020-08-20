@@ -61,10 +61,8 @@ public class MainActivity extends AppCompatActivity {
         //if more than one fragment is in backStack, then call popBackStack
         //or exit from activity
         int count = getSupportFragmentManager().getBackStackEntryCount();
-        if (count <= 1) {
+        getSupportFragmentManager().popBackStack();
+        if (count <= 1)
             super.onBackPressed();
-        } else {
-            getSupportFragmentManager().popBackStack();
-        }
     }
 }

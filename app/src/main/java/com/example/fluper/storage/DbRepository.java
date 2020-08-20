@@ -56,18 +56,28 @@ public class DbRepository {
     }
 
     //delete all values from productEntity
+    //passing product id
     @SuppressLint("StaticFieldLeak")
-    public void deleteProduct() {
+    public void deleteProduct(int id) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                dbHandler.productDao().deleteProduct();
-                try {
-//                    closeDb();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                dbHandler.productDao().deleteProduct(id);
+                return null;
+            }
+        }.execute();
+    }
+
+
+    //delete all values from productEntity
+    @SuppressLint("StaticFieldLeak")
+    public void deleteAllProducts() {
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                dbHandler.productDao().deleteAllProduct();
                 return null;
             }
         }.execute();
