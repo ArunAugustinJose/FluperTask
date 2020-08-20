@@ -1,0 +1,50 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Samsung Galaxy M31",
+      "description": "64MP + 8MP + 5MP + 5MP rear camera | 32MP front facing camera 16.21 centimeters (6.4-inch) FHD+ capacitive touchscreen with 2340 x 1080 pixels resolution, 404 ppi pixel density and 16M color support Memory, Storage & SIM: 6GB RAM | 64GB storage expandable up to 512GB | Dual SIM with dual standby (4G+4G) Android v10.0 operating system with 2.3GHz + 1.7GHz Exynos 9611 Octa core processor",
+      "regular price": 19772.00,
+      "sale price": 17772,
+      "product_photo": "img_M31",
+      "colors": [
+        {
+          "id": 1,
+          "color": "Red"
+        },
+        {
+          "id": 2,
+          "color": "Green"
+        }
+      ],
+      "stores": {
+        "store": "TeraDukaan",
+        "store": "Flipcliq",
+        "store": "Online-Buzz"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy M30",
+      "description": "64MP + 8MP + 5MP + 5MP rear camera | 32MP front facing camera 16.21 centimeters (6.4-inch) FHD+ capacitive touchscreen with 2340 x 1080 pixels resolution, 404 ppi pixel density and 16M color support Memory, Storage & SIM: 6GB RAM | 64GB storage expandable up to 512GB | Dual SIM with dual standby (4G+4G) Android v10.0 operating system with 2.3GHz + 1.7GHz Exynos 9611 Octa core processor",
+      "regular price": 19772.00,
+      "sale price": 17772,
+      "product_photo": "img_M31",
+      "colors": [
+        {
+          "id": 1,
+          "color": "Red"
+        },
+        {
+          "id": 2,
+          "color": "Green"
+        }
+      ],
+      "stores": {
+        "store": "TeraDukaan",
+        "store": "Flipcliq",
+        "store": "Online-Buzz"
+      }
+    }
+  ]
+}

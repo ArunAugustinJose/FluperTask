@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="transparent_white_01">#03FFFFFF</color>
+    <color name="transparent_white_08">#14FFFFFF</color>
+    <color name="transparent_white_15">#26FFFFFF</color>
+    <color name="transparent_white_24">#3DFFFFFF</color>
+    <color name="transparent_white_36">#5CFFFFFF</color>
+    <color name="transparent_white_48">#7AFFFFFF</color>
+    <color name="transparent_white_50">#80FFFFFF</color>
+    <color name="transparent_white_64">#A3FFFFFF</color>
+    <color name="transparent_white_76">#C2FFFFFF</color>
+    <color name="transparent_100">#00FFFFFF</color>
+
+    <color name="transparent_black_01">#03000000</color>
+    <color name="transparent_black_08">#14000000</color>
+    <color name="transparent_black_15">#26000000</color>
+    <color name="transparent_black_24">#3D000000</color>
+    <color name="transparent_black_36">#5C000000</color>
+    <color name="transparent_black_48">#7A000000</color>
+    <color name="transparent_black_50">#80000000</color>
+    <color name="transparent_black_64">#A3000000</color>
+    <color name="transparent_black_76">#C2000000</color>
+
+    <color name="transparent_red_01">#03CC0000</color>
+    <color name="transparent_red_08">#14CC0000</color>
+    <color name="transparent_red_15">#26CC0000</color>
+    <color name="transparent_red_24">#3DCC0000</color>
+    <color name="transparent_red_36">#5CCC0000</color>
+    <color name="transparent_red_48">#7ACC0000</color>
+    <color name="transparent_red_50">#80CC0000</color>
+    <color name="transparent_red_64">#A3CC0000</color>
+    <color name="transparent_red_76">#C2CC0000</color>
+
+    <color name="errorRed">#D50000</color>
+    <color name="black">#000000</color>
+    <color name="grey">#B2B2B2</color>
+    <color name="white">#FFFFFF</color>
+</resources>
