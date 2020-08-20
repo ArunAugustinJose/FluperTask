@@ -180,7 +180,7 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
     @Override
     public void onItemClick(int position, boolean isDelete) {
         if (!isDelete) {
-            //load ProductListFragment
+            //load ProductDetailFragment
             ProductDetailFragment productDetailFragment = new ProductDetailFragment();
             Bundle bundle = new Bundle();
             bundle.putParcelable(PRODUCT, productList.get(position));
@@ -195,3 +195,8 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
         }
     }
 }
+
+/**
+ * Created: Arun Jose
+ * 21/08/2020
+ */

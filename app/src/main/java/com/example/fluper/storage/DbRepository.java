@@ -69,6 +69,16 @@ public class DbRepository {
         }.execute();
     }
 
+    @SuppressLint("StaticFieldLeak")
+    public void updateProduct(final String name, final String description, final double price, final int id) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                dbHandler.productDao().updateProduct(name, description, price, id);
+                return null;
+            }
+        }.execute();
+    }
 
     //delete all values from productEntity
     @SuppressLint("StaticFieldLeak")

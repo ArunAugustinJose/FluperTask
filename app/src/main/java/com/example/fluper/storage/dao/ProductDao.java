@@ -21,6 +21,10 @@ public interface ProductDao {
     @Query("DELETE FROM ProductEntity WHERE product_id=:id")
     void deleteProduct(int id);
 
+    @Query("UPDATE ProductEntity SET name =:name, description =:description, sale_price =:price" +
+            " WHERE product_id =:id ")
+    void updateProduct(String name, String description, double price, int id);
+
     @Query("DELETE FROM ProductEntity")
     void deleteAllProduct();
 }

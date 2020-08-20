@@ -18,8 +18,19 @@
     <string name="search_products">Search products</string>
     <string name="product_list"> Products </string>
     <string name="product_detail"> Product Detail</string>
+    <string name="edit_product"> Edit Product</string>
+    <string name="update"> Update</string>
 
-<!--    warning-->
+    <!--    warning-->
     <string name="no_products">No Products Available</string>
     <string name="all_products_added"> All products are added to the database</string>
+    <string name="invalid_name">Invalid product name</string>
+    <string name="invalid_description"> Invalid description</string>
+    <string name="invalid_price"> Invalid price</string>
+
+
+<!--    hint-->
+    <string name="enter_name"> Enter product name</string>
+    <string name="enter_description">Enter description</string>
+    <string name="enter_price"> Enter price</string>
 </resources>
