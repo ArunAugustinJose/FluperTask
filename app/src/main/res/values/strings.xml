@@ -28,9 +28,14 @@
     <string name="invalid_description"> Invalid description</string>
     <string name="invalid_price"> Invalid price</string>
 
-
-<!--    hint-->
+    <!--    hint-->
     <string name="enter_name"> Enter product name</string>
     <string name="enter_description">Enter description</string>
     <string name="enter_price"> Enter price</string>
+    <string name="title_activity_splash">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+<!--    success-->
+    <string name="product_updated">Product updated successfully</string>
 </resources>

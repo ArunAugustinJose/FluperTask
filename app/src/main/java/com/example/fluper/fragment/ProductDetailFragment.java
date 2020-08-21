@@ -127,6 +127,7 @@ public class ProductDetailFragment extends Fragment {
     public void updateData(ProductListModel productModel){
         productListModel = productModel;
         fillData();
+        ProductListFragment.getInstance().getProducts(true);
     }
 }
 

@@ -10,11 +10,11 @@
       "colors": [
         {
           "id": 1,
-          "color": "Red"
+          "color": "red"
         },
         {
           "id": 2,
-          "color": "Green"
+          "color": "green"
         }
       ],
       "stores": {
@@ -25,19 +25,88 @@
     },
     {
       "id": 2,
-      "name": "Samsung Galaxy M30",
-      "description": "64MP + 8MP + 5MP + 5MP rear camera | 32MP front facing camera 16.21 centimeters (6.4-inch) FHD+ capacitive touchscreen with 2340 x 1080 pixels resolution, 404 ppi pixel density and 16M color support Memory, Storage & SIM: 6GB RAM | 64GB storage expandable up to 512GB | Dual SIM with dual standby (4G+4G) Android v10.0 operating system with 2.3GHz + 1.7GHz Exynos 9611 Octa core processor",
-      "regular price": 19772.00,
-      "sale price": 17772,
+      "name": "Samsung Galaxy A21s (White, 64 GB)  (4 GB RAM)",
+      "description": "Whether it’s movies, games, or videos, every form of content that’s displayed on this smartphone’s 16.63 cm (6.5) Infinity-O display will be a treat to the eyes. Be it day or night, you can capture amazing pictures on the Samsung Galaxy A21s, thanks to the 48 MP quad-rear-camera setup. You can also capture picture-perfect selfies, while being the center of attention, thanks to the 13 MP front camera with Live Focus effects.",
+      "regular price": 17999.00,
+      "sale price": 15999.00,
       "product_photo": "img_m31.jpeg",
       "colors": [
         {
           "id": 1,
-          "color": "Red"
+          "color": "red"
         },
         {
           "id": 2,
-          "color": "Green"
+          "color": "black"
+        }
+      ],
+      "stores": {
+        "store": "TeraDukaan",
+        "store": "Flipcliq",
+        "store": "Online-Buzz"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Samsung Galaxy S9 (Midnight Black, 64 GB)  (4 GB RAM)",
+      "description": "Saying that the Samsung Galaxy S9 has a lot of features is an understatement. Powered by an octa-core processor and 4 GB of RAM, the S9 comes with a multitude of innovative features such as augmented reality emojis, Super Slow-mo, Live Translation, Intelligent Scan, and more. With the brilliant 12 MP rear camera and the 8 MP front camera.",
+      "regular price": 62500.00,
+      "sale price": 24999.00,
+      "product_photo": "img_m31.jpeg",
+      "colors": [
+        {
+          "id": 1,
+          "color": "red"
+        },
+        {
+          "id": 2,
+          "color": "black"
+        }
+      ],
+      "stores": {
+        "store": "TeraDukaan",
+        "store": "Flipcliq",
+        "store": "Online-Buzz"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Samsung Galaxy S10 (Prism Blue, 128 GB)  (8 GB RAM)",
+      "description": "Get ready to explore the next generation of powerful computing and mobile photography with the Samsung Galaxy S10. It comes with an Intelligent Camera that automatically optimizes its settings to give you picture-perfect photos. That's not all, the Samsung S10 has the Infinity-O Display and a seamless design that make this smartphone a true masterpiece.",
+      "regular price": 71000.00,
+      "sale price": 57800.00,
+      "product_photo": "img_m31.jpeg",
+      "colors": [
+        {
+          "id": 1,
+          "color": "red"
+        },
+        {
+          "id": 2,
+          "color": "black"
+        }
+      ],
+      "stores": {
+        "store": "TeraDukaan",
+        "store": "Flipcliq",
+        "store": "Online-Buzz"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Samsung Galaxy S20+ (Cosmic Gray, 128 GB)  (8 GB RAM)",
+      "description": "Say hello to the powerful and stylish Samsung Galaxy S20+ smartphone. Featuring a 64 MP high-resolution camera with 30X Zoom, you can capture stunning photos like never before on this smartphone. It also comes with a long-lasting 4500 mAh battery so you can stay entertained for a long time. That's not all, the Samsung Galaxy S20+ comes with the Infinity-O display and a seamless design, which makes it a must-have for all the gadget-enthusiasts.",
+      "regular price": 83000.00,
+      "sale price": 77999.00,
+      "product_photo": "img_m31.jpeg",
+      "colors": [
+        {
+          "id": 1,
+          "color": "red"
+        },
+        {
+          "id": 2,
+          "color": "black"
         }
       ],
       "stores": {

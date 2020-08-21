@@ -50,11 +50,16 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
     private List<ProductListModel> productList = new ArrayList<>();
     ProductAdapter mAdapter;
     DbRepository dbRepository;
+    private static ProductListFragment instance = null;
 
     public ProductListFragment() {
         // Required empty public constructor
     }
 
+    //getter of instance
+    public static ProductListFragment getInstance() {
+        return instance;
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -69,6 +74,7 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
     }
 
     @Override
@@ -94,7 +100,7 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
             getActivity().getSupportFragmentManager().popBackStack();
         });
 
-        getProducts();
+        getProducts(false);
     }
 
     private void init() {
@@ -131,7 +137,7 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
 
             @Override
             public void onSearchConfirmed(CharSequence text) {
-                Log.e("SEARCH", text.toString());
+                //pass search string to adapter
                 mAdapter.getFilter().filter(text.toString());
             }
 
@@ -146,7 +152,7 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
         });
     }
 
-    private void getProducts() {
+    public void getProducts(boolean isUpdate) {
         //initializing db
         dbRepository = new DbRepository(getContext());
         dbRepository.getAllProducts().observe(getActivity(), new Observer<List<ProductEntity>>() {
@@ -165,11 +171,15 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
                         productListModel.setSale_price(productEntity.getSale_price());
                         productListModel.setProduct_photo(productEntity.getProduct_photo());
                         productListModel.setImage(PRODUCT_IMAGE_ARRAY[i]);
-                        Log.e("COLORS", productEntity.getProduct_photo());
+                        Log.e("COLORS", productEntity.getName());
                         productList.add(productListModel);
                         i++;
                     }
-                    init();
+                    if (isUpdate){
+                        mAdapter.notifyDataSetChanged();
+                    }else {
+                        init();
+                    }
                 }else {
                     lEmpty.setVisibility(View.VISIBLE);
                 }

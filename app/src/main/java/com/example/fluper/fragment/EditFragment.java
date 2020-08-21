@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -107,13 +109,22 @@ public class EditFragment extends Fragment {
                         Double.parseDouble(tSalePrice.getText().toString()),
                         productListModel.getId());
 
-                ProductDetailFragment.getInstance().updateData(pModal);
+                //give a 1sec delay to update db
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ProductDetailFragment.getInstance().updateData(pModal);
+                    }
+                }, 1000);
+                Toast.makeText(getContext(), getString(R.string.product_updated), Toast.LENGTH_LONG).show();
             }
         });
 
         fillData();
     }
 
+    //show all values in the view
     private void fillData() {
         tName.setText(productListModel.getName());
         tDescription.setText(productListModel.getDescription());
