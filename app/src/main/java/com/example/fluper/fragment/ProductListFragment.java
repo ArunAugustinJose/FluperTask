@@ -23,11 +23,17 @@ import android.widget.LinearLayout;
 
 import com.example.fluper.R;
 import com.example.fluper.adapter.ProductAdapter;
+import com.example.fluper.model.ColorModel;
 import com.example.fluper.model.ProductListModel;
 import com.example.fluper.storage.DbRepository;
 import com.example.fluper.storage.entity.ProductEntity;
 import com.example.fluper.util.GridSpacingItemDecoration;
+import com.google.gson.Gson;
 import com.mancj.materialsearchbar.MaterialSearchBar;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -171,7 +177,8 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
                         productListModel.setSale_price(productEntity.getSale_price());
                         productListModel.setProduct_photo(productEntity.getProduct_photo());
                         productListModel.setImage(PRODUCT_IMAGE_ARRAY[i]);
-                        Log.e("COLORS", productEntity.getName());
+                        productListModel.setColorList(getColors(productEntity.getColors()));
+                        getColors(productEntity.getColors());
                         productList.add(productListModel);
                         i++;
                     }
@@ -185,6 +192,25 @@ public class ProductListFragment extends Fragment implements ProductAdapter.Prod
                 }
             }
         });
+    }
+
+    private ArrayList<ColorModel> getColors(String colors){
+        ArrayList<ColorModel> colorList = new ArrayList<>();
+        JSONArray jsonArray = null;
+        try {
+            jsonArray = new JSONArray(colors);
+            for (int i = 0; i<jsonArray.length(); i++){
+                //convert string into Json Object
+//                JSONObject jsonObj = new JSONObject(jsonArray.getJSONObject(i).toString());
+                //get product_count'th product in array and store it into productListModel object
+//                ColorModel colorModel = new Gson().fromJson(jsonArray.getJSONObject(i).toString(), ColorModel.class);
+//                colorList.add(colorModel);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return colorList;
     }
 
     @Override
